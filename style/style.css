@@ -2,7 +2,12 @@
     box-sizing: border-box;
 }
 
+section {
+    background-color: grey;
+}
+
 #board {
+    
     margin: auto;
     width: 100px;
     height: 100px;
@@ -13,7 +18,8 @@
     width: 10px;
     height: 10px;
     float: left;
-    border: 1px solid blue;
+    border: 1px solid lightgrey;
+    background-color: white;
 }
 
 #board div#ant {
@@ -25,7 +31,7 @@
     z-index: 2;   
 }
 
-.live {
+#board div.live {
     background-color: black;
 }
 

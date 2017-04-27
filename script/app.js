@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     var board = document.getElementById('board');
+    var number = document.getElementById('number');
+    var value = document.getElementById('value');
     var initializeBoard = function () {
         for (var i = 0; i < 100; i++) {
             var cell = document.createElement('div');
@@ -91,6 +93,20 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         };
     };
+     
+    var calculateValue = function(){
+        var cellsValues = [0,0,0,0,0,0,0,0,0,0];
+        for(var j = 0; j < 10; j++) {
+        for (var i = 0; i < 10; i++) {
+            if (cells[j*10+i].className == 'live') {
+                cellsValues[j] += 1;
+            }
+            cellsValues[j].push(cells[j*10+i])
+        }
+    };
+        return cellsValues;
+    };
+    
     var moveAnt = function () {
         var baseCell = getBaseCell();
         var antsTopPosition = ant.style.top;
@@ -102,7 +118,10 @@ document.addEventListener('DOMContentLoaded', function () {
         ant.style.left = (100 + parseInt(antsLeftPosition) + 10 * leftMove)%100 + 'px';
         ant.dataset.direction = (4 + parseInt(ant.dataset.direction) + turn) % 4;
         baseCell.classList.toggle('live');
+        var colValue = calculateColValue();
+        number.innerHTML = colValue;
     };
+    
     var z = null;
     var play = document.getElementById('start');
     var pause = document.getElementById('pause');
@@ -113,5 +132,26 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     pause.addEventListener('click', function () {
         clearInterval(z);
+        
     });
+    var log = [];
+    var calculateColValue = function(){
+        var value = 0;
+        var colValues = [0,0,0,0,0,0,0,0,0,0];
+        for(var i = 0; i < 10; i++) {
+        for (var j = 0; j < 10; j++) {
+            if (cells[i*10+j].className == 'live') {
+                colValues[j] += 1;
+                value += 1;
+                log.push(value);
+            }
+            
+        }
+    };
+        return colValues;
+    };
+    
+    
+    
+    
 });
