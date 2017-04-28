@@ -2,33 +2,43 @@
     box-sizing: border-box;
 }
 
-section {
+body {
     background-color: grey;
 }
 
+section {
+    margin: 10px;
+}
+
 #board {
-    
     margin: auto;
-    width: 100px;
-    height: 100px;
+    /*
+    width: 700px;
+    height: 700px;
+*/
     position: relative;
 }
 
 #board div {
+    /*
     width: 10px;
     height: 10px;
+*/
     float: left;
-    border: 1px solid lightgrey;
+    /*    border: 1px solid lightgrey;*/
     background-color: white;
 }
 
 #board div#ant {
     position: absolute;
+    /*
     width: 10px;
     height: 10px;
+*/
     border: 1px solid red;
+    background-color: transparent;
     border-radius: 50%;
-    z-index: 2;   
+    z-index: 2;
 }
 
 #board div.live {
@@ -36,15 +46,13 @@ section {
 }
 
 #buttons {
-    width: 150px;
+    box-sizing: content-box;
+    width: 350px;
     height: 50px;
-    margin: auto;
+    margin: 10px auto;
 }
 
-#start {
+button {
     float: left;
-}
-
-#pause {
-    float: right;
+    margin: 10px;
 }
